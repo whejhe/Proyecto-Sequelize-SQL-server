@@ -21,7 +21,18 @@ export const createArtista = async (req, res) => {
     }
 };
 
-export const updateArtista = async (req,res)=>{}
+export const updateArtista = async (req,res)=>{
+    try{
+        const {id} = req.params;
+        const {nombre_artista} = req.body;
+        const Artista = await artistas.findByPk(id);
+        Artista.nombre_artista = nombre_artista;
+        await Artista.save();
+        res.json(artistas);
+    }catch(error){
+        return res.status(500).json({message: error.message});
+    }
+};
 
 export const deleteArtista = async (req,res)=>{
     try{

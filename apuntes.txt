@@ -51,3 +51,23 @@ npm install Sequelize
 npm install tedious (Para sql server)
 Sequelize = se refiere a la biblioteca
 sequelize = es una instancia de Sequelize
+
+.nvmrc
+node -v > .nvmrc - Crear archivo .nvmrc
+
+-Generar Certificado SSL desde consola Git-
+openssl genrsa -out client-key.pem 2048
+openssl req -new -key client-key.pem -out client.csr
+openssl x509 -req -in client.csr -signkey client-key.pem -out client-cert.pem
+
+
+//crea un servidor HTTPS
+npm install https
+const https = require('https');
+
+https.createServer({
+  cert: fs.readFileSync('certificate/client-cert.pem'),
+  key: fs.readFileSync('certificate/client-key.pem')
+}, app).listen(PORT, () => {
+  console.log(`Servidor HTTPS iniciado en el puerto ${PORT}`);
+});

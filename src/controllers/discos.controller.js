@@ -24,7 +24,20 @@ export const createDiscos = async (req, res) => {
 
 };
 
-export const updateDiscos = async (req,res)=>{}
+export const updateDiscos = async (req,res)=>{
+    try{
+        const {id} = req.params;
+        const {titulo_disco,anio_lanzamiento,id_artista} = req.body;
+        const Disco = await discos.findByPk(id);
+        Disco.titulo_disco = titulo_disco;
+        Disco.anio_lanzamiento = anio_lanzamiento;
+        Disco.id_artista = id_artista;
+        await Disco.save();
+        res.json(discos);
+    }catch(error){
+        return res.status(500).json({message: error.message});
+    }
+}
 
 export const deleteDiscos = async (req,res)=>{
     try{

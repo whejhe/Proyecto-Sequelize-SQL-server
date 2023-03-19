@@ -7,7 +7,7 @@ export const getDiscosUsuario = async(req,res)=>{
     }catch(error){
         return res.status(500).json({ message: error.message });
     }
-}
+};
 
 export const deleteDiscosUsuario = async (req,res)=>{
     try{

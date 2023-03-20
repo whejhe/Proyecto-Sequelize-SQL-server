@@ -71,3 +71,6 @@ https.createServer({
 }, app).listen(PORT, () => {
   console.log(`Servidor HTTPS iniciado en el puerto ${PORT}`);
 });
+
+JWT(Json Web Token)
+npm install jsonwebtoken

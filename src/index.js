@@ -1,5 +1,6 @@
 import app from './app.js';
-import { sequelize } from './database/database.js'
+import { sequelize } from './database/database.js';
+
 
 // import './models/artistas.js';
 // import './models/discos.js';
